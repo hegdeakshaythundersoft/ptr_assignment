@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include<string.h>
+int validity(char*,char*);
+int main(){
+    char seq[10];
+    printf("enter the sequence continuously dont press enter\n");
+    scanf("%s",seq);
+    printf("%s\n",(validity(seq,seq)==1)?"valid":"invalid");
+        return 0;
+}
+int validity(char *s,char *p){
+    if(*(s)=='\0')
+    return 1;
+    p--;
+    while(s!=p){
+        if(*s!=*p){
+        return 0;
+        }
+         p--;
+    }
+    validity(s+*s-'0',s+*s-'0');
+}
